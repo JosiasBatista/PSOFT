@@ -5,18 +5,22 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Batch {
 	private static AtomicInteger ID_GENERATOR = new AtomicInteger(1000);
 	
-	public Batch(Product produto, Integer quantidade) {
+	public Batch(Product product, Integer amount) {
 		this.id = String.valueOf(ID_GENERATOR.getAndIncrement());
-		this.produto = produto;
-		this.quantidade = quantidade;
+		this.product = product;
+		this.amount = amount;
 	}
 	
 	private String id;
-	private Product produto;
-	private Integer quantidade;
+	private Product product;
+	private Integer amount;
 	
 	@Override
 	public String toString() {
-		return "Lote " + this.produto + " - " + String.valueOf(this.quantidade) + " unidades";
+		return "Lote " + this.product + " - " + String.valueOf(this.amount) + " unidades";
+	}
+	
+	public Product getProduct() {
+		return this.product;
 	}
 }
